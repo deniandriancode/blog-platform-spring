@@ -1,0 +1,22 @@
+<html th:replace="~{layout :: layout ('List Blogs', ~{::main})}">
+    <head>
+    </head>
+
+    <body>
+
+        <main>
+            <h1>List Blogs</h1>
+            <ul th:each="blog : ${blogs}">
+                <li>
+                    <a th:href="@{/blog/} + ${blog.id}" th:text="${blog.title}"></a>
+                </li>
+            </ul>
+            <div>
+                <a th:href="@{/blogs/page/} + ${pageNumber-1}">Prev</a>
+                <a th:href="@{/blogs/page/} + ${pageNumber+1}">Next</a>
+            </div>
+        </main>
+
+    </body>
+</html>
+

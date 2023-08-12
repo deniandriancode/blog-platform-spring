@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:fragment="layout(layoutTitle, layoutContent)">
+    <head>
+        <title th:text="${layoutTitle}"></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <nav th:replace="~{nav :: nav}"></nav>
+    
+        <div th:replace="${layoutContent}"></div>
+
+        <footer th:replace="~{footer :: footer}"></footer>
+
+    </body>
+</html>

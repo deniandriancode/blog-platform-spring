@@ -1,0 +1,28 @@
+<html th:replace="~{layout :: layout ('Update Blog', ~{::main})}">
+    <head>
+    </head>
+
+    <body>
+
+        <main>
+            <form th:action="@{/update/} + ${blog.id}" method="post" th:object="${blog}" autocomplete="off">
+                <p>
+                    <label for="title">Title</label><br/>
+                    <input id="title" type="text" th:field="*{title}" th:value="*{title}"/><br/>
+                    <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+                </p>
+                <p>
+                    <label for="content">Content</label><br/>
+                    <textarea id="content" rows="10" th:field="*{content}" th:text="*{content}" style="font-family: inherit;" spellcheck="false"></textarea><br/>
+                    <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
+                </p>
+                <p>
+                    <button type="submit">Update</button>
+                </p>
+            </form>
+        </main>
+
+    </body>
+</html>
+
+
